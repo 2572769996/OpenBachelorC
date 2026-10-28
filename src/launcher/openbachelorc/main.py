@@ -208,9 +208,11 @@ def main():
         setup_config()
 
         if config["attach_pc"]:
+            print("info: ensuring that adb server is killed")
             kill_adb_server()
             emulator_id = None
 
+            print("info: starting pc game")
             subprocess.Popen(
                 f'"{Path(AK_EXE_FILEPATH_TXT_FILEPATH).read_text(encoding="utf-8")}"',
                 shell=True,
